@@ -33,7 +33,12 @@ class PostsController < ApplicationController
     end
   end
 
- 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to account_posts_path(@group), alert: 'Post deleted'
+  end
+
 
 
     private
